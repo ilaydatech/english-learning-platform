@@ -25,7 +25,7 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "Backend API Bağlantısı Başarılı!" });
 });
 
-app.use("/users", router);
+app.use("/", router);
 
 
 app.listen(port, () => {
