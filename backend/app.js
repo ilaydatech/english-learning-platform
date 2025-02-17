@@ -13,9 +13,16 @@ conn();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // React frontend URL
+    credentials: true, // Tarayıcı ile cookie/token paylaşımı için
+    optionsSuccessStatus: 200,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded( { extended: true }));
+
 
 app.get("/", (req, res) => {
   res.send("Hello ilos");

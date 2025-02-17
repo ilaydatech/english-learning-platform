@@ -5,18 +5,40 @@ const jwt = require("jsonwebtoken");
 // Kullanıcı oluşturma fonksiyonu (zaten var)
 const createUser = async (req, res) => {
   try {
-    const user = await User.create(req.body);
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "Email ve şifre gereklidir" });
+    }
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res
+        .status(409)
+        .json({ message: "Bu email adresi zaten kullanılıyor!" });
+    }
+    // Şifreyi hashle
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Kullanıcıyı oluştur
+    const user = await User.create({
+      email,
+      password: hashedPassword, // Hashlenmiş şifreyi kaydet
+    });
+
     res.status(201).json({
       succeeded: true,
       user,
     });
   } catch (error) {
+    console.error("Kullanıcı oluşturma hatası:", error);
     res.status(500).json({
       succeeded: false,
-      error,
+      message: "Sunucu hatası",
+      error: error.message, // Hata detayını gönder
     });
   }
 };
+
 
 // Kullanıcı giriş fonksiyonu (EKLENEN FONKSİYON)
 const loginUser = async (req, res) => {
