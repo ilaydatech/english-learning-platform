@@ -28,12 +28,7 @@ app.get("/", (req, res) => {
   res.send("Hello ilos");
 });
 
-app.get("/api/test", (req, res) => {
-  res.json({ message: "Backend API Bağlantısı Başarılı!" });
-});
-
 app.use("/", router);
-
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
