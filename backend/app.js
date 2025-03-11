@@ -4,7 +4,9 @@ const cors = require("cors");
 const conn = require("./db/dbConnection.js");
 const bcrypt = require("bcrypt");
 // const User = require("./models/userModel.js");
-const router = require("./routers/userRoute.js");
+const userRoute = require("./routers/userRoute.js");
+const oxfordRoute = require("./routers/oxfordRoute.js"); // Oxford API route eklendi
+
 
 dotenv.config();
 // MongoDB'ye bağlan
@@ -28,7 +30,11 @@ app.get("/", (req, res) => {
   res.send("Hello ilos");
 });
 
-app.use("/", router);
+
+app.use("/api", oxfordRoute);
+
+app.use("/", userRoute);
+
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
