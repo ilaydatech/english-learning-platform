@@ -1,0 +1,31 @@
+{
+    "A1": [
+      "apple",
+      "book",
+      "cat",
+      "dog",
+      "house",
+      "water"
+    ],
+    "A2": [
+      "adventure",
+      "beach",
+      "holiday",
+      "friendly",
+      "quiet"
+    ],
+    "B1": [
+      "achievement",
+      "benefit",
+      "challenge",
+      "decision",
+      "encourage"
+    ],
+    "B2": [
+      "ambitious",
+      "consequence",
+      "enthusiasm",
+      "fascinating",
+      "generous"
+    ]
+  }
