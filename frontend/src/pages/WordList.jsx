@@ -1,23 +1,54 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom"; // URL'den seviye bilgisini almak için React Router'dan useParams kullanılır.
+import { useLocation, useNavigate } from "react-router-dom";
 
-function WordList({ wordsByLevel }) {
-  const { level } = useParams(); // URL'den gelen seviyeyi al.
-  const words = wordsByLevel[level] || []; // Eğer seviyeye ait kelime varsa getir, yoksa boş liste döndür.
+function WordList() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { level, words } = location.state || {};
+
+  // if (!level || !words) {
+  //   return <h2>Bir hata oluştu, lütfen tekrar deneyin.</h2>;
+  // }
 
   return (
     <div>
-      <h2>{level} Seviyesindeki Kelimeler:</h2>
+      <h1>{level} Seviyesi Kelimeleri</h1>
       <ul>
-        {/* Seçilen seviyeye ait kelimeleri listele */}
         {words.map((word, index) => (
-          <li key={index}>{word}</li> // Kelime listesi render edilir.
+          <li key={index}>{word}</li>
         ))}
       </ul>
-      {/* Kullanıcıyı tekrar ana sayfaya yönlendiren buton */}
-      <Link to="/">Geri Dön</Link>
+      <button onClick={() => navigate("/chooselevel")}>Geri Dön</button>
     </div>
   );
 }
 
-export default WordList; // Bileşeni dışa aktar.
+export default WordList;
+
+// import React from "react";
+
+// function WordList({ level, words }) {
+//   // Eğer props'tan gelen level veya words boşsa, hata mesajı gösteriyoruz.
+//   if (!level || !words) {
+//     return <h2>Bir hata oluştu, lütfen tekrar deneyin.</h2>;
+//   }
+
+//   return (
+//     <div>
+//       {/* Seçilen seviyeyi başlık olarak ekrana yazdırıyoruz */}
+//       <h1>{level} Seviyesi Kelimeleri</h1>
+
+//       {/* Kelimeleri liste halinde gösteriyoruz */}
+//       <ul>
+//         {words.map((word, index) => (
+//           <li key={index}>{word}</li> // Her kelime için liste öğesi oluşturuluyor
+//         ))}
+//       </ul>
+
+//       {/* Kullanıcıyı tekrar seviye seçme sayfasına yönlendiren buton */}
+//       <button onClick={() => window.history.back()}>Geri Dön</button>
+//     </div>
+//   );
+// }
+
+// export default WordList;

@@ -2,10 +2,12 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "../src/components/Navbar";
 import Home from "../src/pages/Home";
 import NasilCalisir from "./pages/NasilCalisir";
+import ChooseEnglishLevel from "./pages/ChooseEnglishLevel";
 import Register from "../src/pages/Register";
 import Login from "./pages/Login";
-import ChooseLevel from "./pages/ChooseLevel";
 import WordList from "../src/pages/WordList";
+import YourProgress from "./pages/YourProgress";
+
 import axios from 'axios';
 import { Toaster } from "react-hot-toast"
 
@@ -23,8 +25,9 @@ function App() {
           <Route path="/nasilcalisir" element={<NasilCalisir/>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/chooselevel" element={<ChooseLevel/>} />
+          <Route path="/chooseenglishlevel" element={<ChooseEnglishLevel/>} />
           <Route path="/wordlist"  element={<WordList />} />
+          <Route path="/yourprogress" element={<YourProgress />} />
         </Routes>
     </>
   );

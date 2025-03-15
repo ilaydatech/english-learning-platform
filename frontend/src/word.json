@@ -1,31 +1,30 @@
 {
-    "A1": [
-      "apple",
-      "book",
-      "cat",
-      "dog",
-      "house",
-      "water"
-    ],
-    "A2": [
-      "adventure",
-      "beach",
-      "holiday",
-      "friendly",
-      "quiet"
-    ],
-    "B1": [
-      "achievement",
-      "benefit",
-      "challenge",
-      "decision",
-      "encourage"
-    ],
-    "B2": [
-      "ambitious",
-      "consequence",
-      "enthusiasm",
-      "fascinating",
-      "generous"
-    ]
+  "A1": {
+      "A1.1": ["apple", "book", "cat", "dog", "house", "water", "car", "pen", "bag", "chair"],
+      "A1.2": ["door", "window", "table", "bed", "food", "drink", "mother", "father", "sister", "brother"],
+      "A1.3": ["friend", "school", "teacher", "student", "sun", "moon", "star", "tree", "flower", "grass"],
+      "A1.4": ["bird", "fish", "milk", "egg", "cheese", "butter", "rice", "bread", "meat", "soup"],
+      "A1.5": ["bus", "train", "plane", "bike", "road", "street", "city", "village", "shop", "market"]
+  },
+  "A2": {
+      "A2.1": ["adventure", "beach", "holiday", "friendly", "quiet", "lucky", "healthy", "strong", "tired", "happy"],
+      "A2.2": ["angry", "nervous", "worried", "excited", "hungry", "thirsty", "delicious", "expensive", "cheap", "beautiful"],
+      "A2.3": ["ugly", "tall", "short", "fast", "slow", "hot", "cold", "warm", "cool", "rainy"],
+      "A2.4": ["cloudy", "sunny", "stormy", "snowy", "windy", "dangerous", "safe", "modern", "ancient", "famous"],
+      "A2.5": ["important", "interesting", "boring", "difficult", "easy", "comfortable", "uncomfortable", "possible", "impossible", "amazing"]
+  },
+  "B1": {
+      "B1.1": ["achievement", "benefit", "challenge", "decision", "encourage", "experience", "failure", "goal", "improvement", "knowledge"],
+      "B1.2": ["motivation", "opportunity", "progress", "result", "solution", "success", "understanding", "ability", "career", "competition"],
+      "B1.3": ["creativity", "education", "environment", "habit", "independent", "lifestyle", "management", "opinion", "performance", "perspective"],
+      "B1.4": ["potential", "priority", "professional", "responsibility", "self-confidence", "self-discipline", "skill", "strategy", "stress", "talent"],
+      "B1.5": ["teamwork", "training", "trend", "value", "variety", "vision", "volunteer", "weakness", "workplace", "achievement"]
+  },
+  "B2": {
+      "B2.1": ["ambitious", "consequence", "enthusiasm", "fascinating", "generous", "influential", "intellectual", "logical", "noteworthy", "perseverance"],
+      "B2.2": ["proactive", "prominent", "prosperous", "rational", "resourceful", "sophisticated", "substantial", "sustainable", "versatile", "vulnerable"],
+      "B2.3": ["analytical", "compelling", "comprehensive", "controversial", "credible", "dedicated", "deliberate", "distinctive", "dominant", "elaborate"],
+      "B2.4": ["ethical", "exceptional", "exemplary", "formidable", "groundbreaking", "insightful", "intriguing", "meticulous", "notable", "nuanced"],
+      "B2.5": ["persuasive", "pioneering", "pragmatic", "progressive", "resilient", "strategic", "synergetic", "transformational", "visionary", "zealous"]
   }
+}
