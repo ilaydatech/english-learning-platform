@@ -15,8 +15,9 @@ function ChooseLevel() {
   }, []);
 
   const handleLevelSelect = (level) => {
-    navigate("/wordlist", { state: { level, words: wordsByLevel[level] } });
+    navigate("/sublevel", { state: { level } });
   };
+  
 
   return (
     <div>

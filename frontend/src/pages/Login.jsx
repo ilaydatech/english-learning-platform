@@ -53,7 +53,7 @@ function Login() {
           required
         />
         <button type="submit">Login</button>
-        <button>g</button>
+
       </form>
     </div>
   );

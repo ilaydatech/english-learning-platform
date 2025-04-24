@@ -9,9 +9,9 @@ function Navbar() {
       <Link to='/nasilcalisir'>Nasıl Çalışır </Link>
       <Link to="/register">Register </Link>
       <Link to="/login">Login </Link>
-      <Link to="/chooseenglishlevel">Choose English Level </Link>
+      <Link to="/chooselevel">Choose Level </Link>
       <Link to="/wordlist">WordList </Link>
-      <Link to="yourprogress">Your Progress</Link>
+      <Link to="sublevel">Sub Level</Link>
     </nav>
   );
 }
