@@ -1,40 +1,70 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import words from "../word.json";
 
 function WordList() {
-  const location = useLocation();
-  const { level, subLevel } = location.state || {};
-
-  const [words, setWords] = useState([]);
-
-  useEffect(() => {
-    fetch("/src/word.json")
-      .then((response) => response.json())
-      .then((data) => {
-        if (data[level] && data[level][subLevel]) {
-          setWords(data[level][subLevel]);
-        }
-      })
-      .catch((error) =>
-        console.error("Kelime listesi yüklenirken hata oluştu:", error)
-      );
-  }, [level, subLevel]);
+  const { level, sub } = useParams(); // /wordlist/:level/:sub
+  const list = words[level]?.[sub] || [];
 
   return (
-    <div>
-      <h1>{subLevel} Kelimeleri</h1>
+    <section>
+      <h1>{`${level} / ${sub}`}</h1>
+
       <ul>
-        {words.length > 0 ? (
-          words.map((word, index) => <li key={index}>{word}</li>)
-        ) : (
-          <p>Kelimeler yükleniyor...</p>
-        )}
+        {list.map((word) => (
+          <li key={word}>{word}</li>
+        ))}
       </ul>
-    </div>
+      
+    </section>
   );
 }
 
 export default WordList;
+
+// import React, { useState, useEffect } from "react";
+// import { useLocation } from "react-router-dom";
+
+// function WordList() {
+//   const location = useLocation();
+//   const { level, subLevel } = location.state || {};
+
+//      const handleOneWord = (subLevel) => {
+//        navigate("/oneword", { state: { level, subLevel } });
+//      };
+
+//   const [words, setWords] = useState([]);
+
+//   useEffect(() => {
+//     fetch("./word.json")
+//       .then((response) => response.json())
+//       .then((data) => {
+//         if (data[level] && data[level][subLevel]) {
+//           setWords(data[level][subLevel]);
+//         }
+//       })
+//       .catch((error) =>
+//         console.error("Kelime listesi yüklenirken hata oluştu:", error)
+//       );
+//   }, [level, subLevel]);
+
+//   return (
+//     <div>
+//       <h1>{subLevel} Kelimeleri</h1>
+//       <ul>
+//         {words.length > 0 ? (
+//           words.map((word, index) => <li key={index}>{word}</li>)
+//         ) : (
+//           <p>Kelimeler yükleniyor...</p>
+//         )}
+//       </ul>
+//       <button onClick={handleOneWord}>
+//         BAŞLA
+//       </button>
+//     </div>
+//   );
+// }
+
+// export default WordList;
 
 // import React from "react";
 // import { useLocation, useNavigate } from "react-router-dom";

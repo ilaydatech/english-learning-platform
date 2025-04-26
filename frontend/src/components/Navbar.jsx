@@ -6,7 +6,6 @@ function Navbar() {
     <nav>
     <span>FluentGo</span>
       <Link to="/">Home </Link>
-      <Link to='/nasilcalisir'>Nasıl Çalışır </Link>
       <Link to="/register">Register </Link>
       <Link to="/login">Login </Link>
       <Link to="/chooselevel">Choose Level </Link>

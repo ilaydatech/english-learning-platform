@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const userPanel = ({ query }) => {
+const YouGlish = ({ query }) => {
   const widgetRef = useRef(null);
 
   useEffect(() => {
@@ -29,4 +29,4 @@ const userPanel = ({ query }) => {
   );
 };
 
-export default userPanel;
+export default YouGlish;

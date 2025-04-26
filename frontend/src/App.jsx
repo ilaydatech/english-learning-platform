@@ -1,34 +1,41 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "../src/components/Navbar";
-import Home from "../src/pages/Home";
-import NasilCalisir from "./pages/NasilCalisir";
-import ChooseLevel from "./pages/ChooseLevel";
-import Register from "../src/pages/Register";
-import Login from "./pages/Login";
-import WordList from "../src/pages/WordList";
-import SubLevel from "./pages/SubLevel";
 
-import axios from 'axios';
-import { Toaster } from "react-hot-toast"
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+
+import Register from "./auth/Register";
+import Login from "./auth/Login";
+
+import ChooseLevel from "./level/ChooseLevel";
+import OneWord     from "./level/OneWord";
+import WordList    from "./level/WordList";
+import SubLevel    from "./level/SubLevel";
 
 
-axios.defaults.baseURL = 'http://localhost:5000';
+
+import YouGlish from "./pages/YouGlish";
+
+import axios from "axios";
+import { Toaster } from "react-hot-toast";
+
+axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.withCredentials = true;
 
 function App() {
   return (
     <>
-        <Navbar />
-        <Toaster position='bottom-right' testOptions={{duration: 2000}}/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/nasilcalisir" element={<NasilCalisir/>} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/chooselevel" element={<ChooseLevel/>} />
-          <Route path="/wordlist"  element={<WordList />} />
-          <Route path="/sublevel" element={<SubLevel />} />
-        </Routes>
+      <Navbar />
+      <Toaster position="bottom-right" testOptions={{ duration: 2000 }} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/chooselevel" element={<ChooseLevel />} />
+        <Route path="/sublevel/:level" element={<SubLevel />} />
+        <Route path="/wordlist/:level/:sub" element={<WordList />} />
+        <Route path="/oneword" element={<OneWord />} />
+        <Route path="/youglish" element={<YouGlish />} />
+      </Routes>
     </>
   );
 }
