@@ -2,16 +2,17 @@ import { Link, useParams } from "react-router-dom";
 import words from "../word.json";
 
 function SubLevel() {
-  const { level } = useParams(); // /sublevel/:level → route param
+  const { level } = useParams(); //  <Route path="/sublevel/:level" element={<SubLevel />} />
+  //  :level bir placeholder'dır. {level} --> seçilen seviye burada tutulur.
   const subLevels = Object.keys(words[level] || {});
 
   return (
     <section>
       <h1>{level} – Bir alt seviye seç</h1>
 
-      {subLevels.map((sub) => (
-        <Link key={sub} to={`/wordlist/${level}/${sub}`}>
-          <button>{sub}</button>
+      {subLevels.map((part) => (
+        <Link key={part} to={`/wordlist/${level}/${part}`}>
+          <button>{part}</button>
         </Link>
       ))}
     </section>

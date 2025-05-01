@@ -33,7 +33,7 @@ function App() {
         <Route path="/chooselevel" element={<ChooseLevel />} />
         <Route path="/sublevel/:level" element={<SubLevel />} />
         <Route path="/wordlist/:level/:sub" element={<WordList />} />
-        <Route path="/oneword" element={<OneWord />} />
+        <Route path="/wordlist/:level/:sub/:idx" element={<OneWord />} />
         <Route path="/youglish" element={<YouGlish />} />
       </Routes>
     </>

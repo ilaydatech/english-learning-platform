@@ -1,20 +1,22 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import words from "../word.json";
 
 function WordList() {
+  const navigate = useNavigate();
   const { level, sub } = useParams(); // /wordlist/:level/:sub
   const list = words[level]?.[sub] || [];
 
   return (
     <section>
       <h1>{`${level} / ${sub}`}</h1>
-
       <ul>
         {list.map((word) => (
           <li key={word}>{word}</li>
         ))}
       </ul>
-      
+      <button onClick={() => navigate(`/wordlist/${level}/${sub}/0`)}>
+        Öğren
+      </button>
     </section>
   );
 }
