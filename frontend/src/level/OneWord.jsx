@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import words from "../word.json";
-import YouGlish from "../pages/YouGlish";
+import YouTubePlayer from "../utils/YouTubePlayer";
 
 function OneWord() {
+
   const { level, sub, idx } = useParams();
   const navigate = useNavigate();
 
@@ -21,8 +22,7 @@ function OneWord() {
   return (
     <section>
       <h1>{word}</h1>
-      {/* kelimeyi prop olarak yolla */}
-      <YouGlish query={word} />
+      <YouTubePlayer word={word} />
       <button onClick={handleClick}>{isLast ? "Bitti" : "Devam"}</button>
     </section>
   );

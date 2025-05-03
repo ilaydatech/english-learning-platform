@@ -10,10 +10,8 @@ import ChooseLevel from "./level/ChooseLevel";
 import OneWord     from "./level/OneWord";
 import WordList    from "./level/WordList";
 import SubLevel    from "./level/SubLevel";
+import YouTubePlayer from "./utils/YouTubePlayer";
 
-
-
-import YouGlish from "./pages/YouGlish";
 
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
@@ -34,7 +32,7 @@ function App() {
         <Route path="/sublevel/:level" element={<SubLevel />} />
         <Route path="/wordlist/:level/:sub" element={<WordList />} />
         <Route path="/wordlist/:level/:sub/:idx" element={<OneWord />} />
-        <Route path="/youglish" element={<YouGlish />} />
+        <Route path="/youtubeplayer" element={<YouTubePlayer />} />
       </Routes>
     </>
   );
