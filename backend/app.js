@@ -6,7 +6,6 @@ const bcrypt = require("bcrypt");
 // const User = require("./models/userModel.js");
 const userRoute = require("./routers/userRoute.js");
 const oxfordRoute = require("./routers/oxfordRoute.js"); // Oxford API route eklendi
-const youtubeRoute = require("./routers/youtubeRoute.js");
 
 dotenv.config();
 // MongoDB'ye bağlan
@@ -34,8 +33,6 @@ app.get("/", (req, res) => {
 app.use("/api", oxfordRoute);
 
 app.use("/", userRoute);
-
-app.use("/api/youtube", youtubeRoute);
 
 
 app.listen(port, () => {
