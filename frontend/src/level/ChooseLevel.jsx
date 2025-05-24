@@ -1,51 +1,37 @@
 import { Link } from "react-router-dom";
-import words from "../word.json"; // JSON doğrudan içe aktarılıyor
+import words from "../word.json";
 
 function ChooseLevel() {
   return (
-    <section>
+    <section className="choose-level-page">
       <h1>Lütfen seviyeni seç</h1>
 
-      {Object.keys(words).map((level) => (
-        <Link key={level} to={`/sublevel/${level}`}>
-          <button>{level}</button>
-        </Link>
-      ))}
+      <div className="level-list">
+        {Object.keys(words).map((level) => (
+          <Link key={level} to={`/sublevel/${level}`}>
+            <button className="level-btn">{level}</button>
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }
-
 export default ChooseLevel;
 
-// import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
+// import words from "../word.json"; // JSON doğrudan içe aktarılıyor
 
 // function ChooseLevel() {
-//   const [EnglishLevel, setEnglishLevel] = useState({});
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     fetch("./word.json")
-//       .then((response) => response.json())
-//       .then((data) => setEnglishLevel(data))
-//       .catch((error) =>
-//         console.error("Level yüklenirken hata oluştu:", error)
-//       );
-//   }, []);
-
-//   const handleLevelSelect = (level) => {
-//     navigate("/sublevel", { state: { level } });
-//   };
-
 //   return (
-//     <div>
+//     <section>
 //       <h1>Lütfen seviyeni seç</h1>
-//       {Object.keys(EnglishLevel).map((level) => (
-//         <button key={level} onClick={() => handleLevelSelect(level)}>
-//           {level}
-//         </button>
+
+//       {Object.keys(words).map((level) => (
+//         <Link key={level} to={`/sublevel/${level}`}>
+//           <button>{level}</button>
+//         </Link>
 //       ))}
-//     </div>
+//     </section>
 //   );
 // }
 

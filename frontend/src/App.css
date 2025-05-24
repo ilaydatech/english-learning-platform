@@ -1,3 +1,673 @@
+@import url("https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ancizar+Sans:ital,wght@0,100..1000;1,100..1000&family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&display=swap");
+body {
+  margin: 0; /* varsayılan tarayıcı boşluğunu siler */
+  background-color: rgb(246, 244, 239);
+}
+.navbar {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* 2️⃣ İçerik konteyneri – eski kurallar burada */
+.navbar-inner {
+  max-width: 1160px;
+  height: 54px;
+  margin: 0 auto; /* ortalar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px; /* kenarlardan nefes */
+  font-family: "Inter", "Helvetica", sans-serif;
+}
+/* Genel çerçeve */
+
+/* (Opsiyonel) Sağ bloktaki linkler arasındaki boşluğu biraz kıs */
+.nav-links {
+  diplay: flex;
+  flex-direction: row;
+  font-weight: bold;
+  gap: 16px;
+  text-decoration: none;
+  /* 28px yerine 20px ­– istediğiniz gibi ayarlayın */
+}
+/* Logo yazısı */
+.logo {
+  text-decoration:none;
+  font-family: "Ancizar Serif", serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #2962ff;
+  letter-spacing: -0.5px;
+  user-select: none;
+}
+
+/* Tüm linklerin ortak hâli */
+.nav-links a {
+  font-family: "Ancizar Serif", serif;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+}
+
+/* “Sign up” butonu */
+.signup-btn {
+  font-family: "Ancizar Serif", serif;
+  padding: 8px 24px;
+  border-radius: 32px;
+  background-color: #2962ff;
+  color: #ffffff;
+  font-weight: normal;
+  transition: background 0.25s ease, transform 0.15s ease;
+}
+
+.signup-btn:hover {
+}
 .home {
-    background-color: red;
+  justify-content: space-between;
+  font-family: "Ancizar Serif", serif;
+  padding: 70px 0;
+  margin: 0 auto; /* sağ-sol auto ⇒ ortalanır */
+  max-width: 1160px; /*  💡 toplam içerik genişliği */
+  background-color: rgb(246, 244, 239);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.home-right {
+  /* 1️⃣ Sütun düzeni */
+  display: flex;
+  flex-direction: column;
+
+  /* 2️⃣ Öğeler arası boşluk */
+  gap: 4px; /* h1 – p – button arasında 24 px  */
+
+  /* 3️⃣ (Opsiyonel) ortalama */
+  justify-content: center; /* dikeyde ortala     */
+  align-items: flex-start; /* sola hizala (buton da sola kalır) */
+}
+.home-right h1 {
+  font-weight: bold;
+  font-family: "Ancizar Serif", serif;
+}
+.home-right p {
+  max-width: 540px;
+}
+.home-span {
+  color: #2962ff;
+  font-weight: 900;
+}
+.home-left img {
+  border-radius: 16px;
+}
+.home-right button {
+  font-weight: 700;
+  border: 0.125rem solid;
+  color: white;
+  background-color: #2962ff;
+  display: inline-block;
+  border-radius: 2.815rem;
+  margin: 0 0.3125rem 0.3125rem;
+  padding: 0.75rem 2.5rem;
+  text-align: center;
+  font-size: 1rem;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  word-wrap: break-word;
+  transition: all 0.2s;
+  -webkit-appearance: none;
+}
+//login.jsx:
+/* ——— LAYOUT ——— */
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #faf9f7;
+}
+
+.login-left,
+.login-right {
+  flex: 1;
+}
+
+.login-left {
+  max-width: 480px; /* keep form narrow for readability          */
+  margin: 0 auto;
+  padding: 72px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px;
+}
+
+.login-right img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+}
+
+/* ——— TYPOGRAPHY ——— */
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* ——— FORM ——— */
+.login-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+.login-form input {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 8px;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fff;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+}
+
+/* OPTIONS ROW */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -4px 0 26px;
+  font-size: 14px;
+}
+
+.options .remember {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.options .forgot {
+  color: #e35b7d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* BUTTONS */
+.btn-primary {
+  margin: 0px auto;
+  width: 100%;
+  padding: 14px;
+  background: #2962ff;
+  color: #fff;
+  font-weight: 600;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #1744e3;
+}
+
+.signup-text {
+  font-size: 14px;
+  text-align: center;
+}
+.signup-text a {
+  color: #e35b7d;
+}
+
+/* DIVIDER */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 34px 0 20px;
+  font-size: 13px;
+  color: #999;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e4e4e4;
+}
+
+/* SOCIAL BUTTONS */
+.social-buttons {
+  display: flex;
+  gap: 20px;
+}
+.social-buttons button {
+  flex: 1;
+  padding: 12px 0;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.social-buttons button:hover {
+  background: #f5f5f5;
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 900px) {
+  .login-page {
+    flex-direction: column;
+  }
+  .login-right {
+    padding: 32px 0;
+  }
+}
+
+//register.jsx
+/* ——— GENEL YAPI ——— */
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+  background: #faf9f7;
+}
+
+.auth-left,
+.auth-right {
+  flex: 1;
+}
+
+.auth-left {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 72px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px;
+}
+
+.auth-right img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* opsiyonel yumuşak köşe */
+}
+
+/* ——— METİN ——— */
+.title {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* ——— FORM ALANLARI ——— */
+.auth-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+.auth-form input {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 8px;
+  width: 100%;
+  border: 1px solid #d5d5d5;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #fff;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  font-size: 18px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* ——— BUTONLAR ——— */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #2962ff;
+  color: #fff;
+  font-weight: 600;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 14px 0 18px;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #1744e3;
+}
+
+.signup-text {
+  font-size: 14px;
+  text-align: center;
+}
+.signup-text a {
+  color: #e35b7d;
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 900px) {
+  .auth-page {
+    flex-direction: column;
+  }
+  .auth-right {
+    padding: 32px 0;
+  }
+}
+
+//chooselevel.jsx:
+/* 1) Tam sayfa zemin ve hizalama */
+.choose-level-page {
+  /* <section className="choose-level-page">… */
+  min-height: calc(100vh - 72px); /* nav’dan sonra ekrana yayıl  */
+  background: #f6f4ef; /* Home’daki açık bej   */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 96px 24px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* 2) Başlık */
+.choose-level-page h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  text-align: center;
+  color: #111;
+}
+
+/* 3) Seviye butonları konteyneri */
+.level-list {
+  /* <div className="level-list"> */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px; /* butonlar arası mesafe */
+  justify-content: center;
+}
+
+/* 4) Tek tek butonlar */
+.level-btn {
+  /* <button className="level-btn">A1</button> */
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: #2962ff; /* aynı mavi */
+  border: 0;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.level-btn:hover {
+  background: #1744e3;
+  transform: translateY(-2px);
+}
+.level-btn:active {
+  background: #1035c9;
+  transform: translateY(0);
+}
+
+/* 5) Küçük ekran düzeltmesi */
+@media (max-width: 600px) {
+  .choose-level-page h1 {
+    font-size: 34px;
+    margin-bottom: 32px;
+  }
+  .level-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+//sublevel.jsx:
+
+.sublevel-page {
+  align-items: center important!;
+  justify-content: center;
+  min-height: calc(100vh - 72px); /* below navbar */
+  background: #f6f4ef;
+  display: flex;
+  flex-direction: column;
+  padding: 96px 24px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.sublevel-page h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  text-align: center;
+  color: #111;
+}
+
+/* list of sub-levels */
+.sublevel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+}
+
+/* each sub-level button */
+.sublevel-btn {
+  padding: 14px 36px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  background: #2962ff;
+  border: 0;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.sublevel-btn:hover {
+  background: #1744e3;
+  transform: translateY(-2px);
+}
+.sublevel-btn:active {
+  background: #1035c9;
+  transform: translateY(0);
+}
+
+/* small-screen tweak */
+@media (max-width: 600px) {
+  .sublevel-page h1 {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+  .sublevel-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+//word.list.jsx:
+.words-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.word-item {
+  list-style-type: none;
+  width: 220px; /* compact width  */
+  padding: 10px 14px; /* compact height */
+  text-align: center;
+  font-size: 15px; /* smaller text   */
+  font-weight: 500;
+  color: #333;
+  background: #fff;
+  border: 1px solid #d5d5d5;
+  border-radius: 10px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.word-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+.btn-primary {
+  padding: 14px 38px;
+  background: #2962ff;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: #1744e3;
+}
+.btn-primary:active {
+  background: #1035c9;
+}
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width: 600px) {
+  .wordlist-page h1 {
+    font-size: 32px;
+    margin-bottom: 36px;
+  }
+  .word-item {
+    width: 180px;
+    font-size: 14px;
+  }
+}
+//oneword.jsx:
+
+.oneword-page {
+  min-height: calc(100vh - 72px); /* navbar’dan sonra tüm yüksekliği kapla */
+  background: #f6f4ef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 🡡 dikeyde ortala */
+  align-items: center; /* 🡠 yatayda ortala */
+  gap: 48px; /* öğeler arası boşluk */
+  padding: 24px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- current word ---------- */
+.oneword-page h1 {
+  font-size: 56px;
+  font-weight: 700;
+  color: #111;
+  text-align: center;
+  margin: 0; /* ekstra marjinleri sıfırla */
+}
+
+/* ---------- YouGlish iframe wrapper ---------- */
+.yg-wrapper {
+  /* <div className="yg-wrapper"> */
+  max-width: 640px;
+  width: 100%;
+  aspect-ratio: 16/9;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden; /* iframe köşelerini yuvarlat */
+}
+
+/* ---------- next / finish button ---------- */
+.btn-primary {
+  /* className="btn-primary" */
+  width: 220px; /* Word pill’lerle uyumlu */
+  padding: 12px 0;
+  background: #2962ff;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: #1744e3;
+  transform: translateY(-2px);
+}
+.btn-primary:active {
+  background: #1035c9;
+  transform: translateY(0);
+}
+
+/* ---------- responsive tweaks ---------- */
+@media (max-width: 600px) {
+  .oneword-page h1 {
+    font-size: 40px;
+  }
+  .yg-wrapper {
+    aspect-ratio: 4/3;
+  }
+  .btn-primary {
+    width: 180px;
+    font-size: 16px;
+  }
 }
