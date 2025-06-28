@@ -39,13 +39,12 @@ const createUser = async (req, res) => {
   }
 };
 
-
 // Kullanıcı giriş fonksiyonu (EKLENEN FONKSİYON)
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Kullanıcıyı e-posta ile bul
+    // Kullanıcıyı e-posta ile bul.
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(401).json({ message: "Geçersiz email" });
@@ -63,11 +62,33 @@ const loginUser = async (req, res) => {
     res.status(200).json({
       message: "Giriş başarılı",
       token,
+      userId: user._id,
+      progress: user.progress,
     });
   } catch (error) {
     res.status(500).json({ message: "Sunucu hatası", error });
   }
 };
 
-module.exports = { createUser, loginUser };
+//Kullanıcı takip sistemi
+const updateProgress = async (req, res) => {
+  try {
+    const { userId, level, part } = req.body;
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(400).json({ error: "Kullanıcı Bulunamadı" });
+    }
 
+    user.progress.level = level;
+    user.progress.part = part;
+    await user.save();
+
+    res.status(200).json({
+      message: `İlerleme güncellendi. Kullanıcı şu an: ${level} seviyesinde, ${part}. kısımda.`,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Güncelleme sırasında hata oluştu" });
+  }
+};
+
+module.exports = { createUser, loginUser, updateProgress };

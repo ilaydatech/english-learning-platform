@@ -22,6 +22,7 @@ export default function Login() {
 
     try {
       const res = await axios.post("/login", { email, password });
+      
       if (res.data.error) {
         toast.error(res.data.error);
       } else {
