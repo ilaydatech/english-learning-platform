@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 export default function Progress() {
     try{
-     await axios.post("/update-progress", { userId, level, part });
+   //  const userInf = await axios.post("/update-progress", { userId, level, part });
 
     }catch(error){
 

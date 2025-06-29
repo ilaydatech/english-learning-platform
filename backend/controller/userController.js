@@ -79,6 +79,9 @@ const updateProgress = async (req, res) => {
       return res.status(400).json({ error: "Kullanıcı Bulunamadı" });
     }
 
+    console.log("Gelen Level:", level);
+    console.log("Gelen Part:", part);
+
     user.progress.level = level;
     user.progress.part = part;
     await user.save();

@@ -14,6 +14,8 @@ conn();
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(express.json()); // en üste ekle!
+
 app.use(
   cors({
     origin: "http://localhost:5173", // React frontend URL
@@ -31,6 +33,7 @@ app.get("/", (req, res) => {
 app.use("/api", oxfordRoute);
 
 app.use("/", userRoute);
+
 
 
 app.listen(port, () => {
